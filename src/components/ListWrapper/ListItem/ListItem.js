@@ -23,7 +23,8 @@ const ListItem = ({name, description, image, twitterLink}) => (
     <img 
       src={image} 
       alt={name}
-      className="list-item__image"/>
+      className="list-item__image"
+      />
     <div>
       <h2 className='list-item__name'>{name}</h2>
       <p className='list-item__description'>{description}</p>
