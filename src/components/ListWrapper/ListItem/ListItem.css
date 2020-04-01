@@ -1,0 +1,35 @@
+﻿.list-item__wrapper {
+  list-style: none;
+  padding: 50px 15px;
+  margin: 0 0 10px;
+  display:flex;
+  align-items: center;
+}
+
+.list-item__image {
+  flex-shrink: 0;
+  margin-right: 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.list-item__name {
+  margin: 0;
+  color: #1E58FF;
+  font-weight: 700;
+
+}
+
+.list-item__description {
+  margin: 10px 0 20px;
+  font-weight: 300;
+
+}
+.list-item__button {
+  font-weight: 500;
+  background: none;
+  border: 2px solid #1E58FF;
+  color: #1E58FF;
+  padding: 7px 12px;
+}

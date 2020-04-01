@@ -1,9 +1,10 @@
 ﻿import React from 'react';
+import ListWrapper from './components/ListWrapper/ListWrapper';
+import './index.css';
 
 const App = () => (
   <div>
-    <h1 className="main-header">Hello, world</h1>
-    <h2 className='secodary-header'>Hello, ego</h2>
+    <ListWrapper/>
   </div>
 );
 
