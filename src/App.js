@@ -1,12 +1,11 @@
-import React from 'react';
-import ListWrapper from './components/ListWrapper/ListWrapper'
-import './index.css';
-// import './App.css';
+﻿import React from 'react';
 
-export const App = () => (
+const App = () => (
   <div>
-    <ListWrapper/>
+    <h1 className="main-header">Hello, world</h1>
+    <h2 className='secodary-header'>Hello, ego</h2>
   </div>
 );
 
 export default App;
+
