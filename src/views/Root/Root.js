@@ -1,11 +1,20 @@
 ﻿import React from 'react';
-import ListWrapper from './components/ListWrapper/ListWrapper';
-import './index.css';
-import Form from './components/Form/Form'
-import danAbramovImage from './assets/images/danabramov.jpg';
-import ryanFlorenceImage from './assets/images/ryanflorence.jpg';
-import michaelJacksonImage from './assets/images/michaeljackson.jpg';
-import kentCDoddsImage from './assets/images/kentcdodds.jpg';
+import TwitterView from '../TwitterView/TwitterView'
+import ArticlesView from '../ArticlesView/ArticlesView'
+import NotesView from '../NotesView/NotesView'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Navigation from '../../components/Navigation/Navigation'
+
+
+import List from '../../components/List/List';
+import '../../index.css';
+import Form from '../../components/Form/Form'
+import danAbramovImage from '../../assets/images/danabramov.jpg';
+import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
+import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
+import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
+
+
 
 const initialStateItems = [
   {
@@ -34,7 +43,7 @@ const initialStateItems = [
   },
 ];
 
-class App extends React.Component {
+class Root extends React.Component {
   state = {
     items: [...initialStateItems],
   }
@@ -58,15 +67,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <ListWrapper 
-          items={this.state.items}
-        />
-        <Form submitFn={this.addItem}/>
-      </div>
-    )
+      <BrowserRouter>
+        <>
+        <Navigation/>
+          <h1>hello world</h1>
+          <Switch>
+            <Route exact path='/' component={TwitterView} />
+            <Route path='/articles' component={ArticlesView} />
+            <Route path='/notes' component={NotesView} />
+          </Switch>
+        </>
+      </BrowserRouter>
+
+      // <div>
+      //   <List 
+      //     items={this.state.items}
+      //   />
+      //   <Form submitFn={this.addItem}/>
+      // </div>
+    );
   }
 };
 
-export default App;
+export default Root;
 
