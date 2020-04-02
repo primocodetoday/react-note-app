@@ -1,49 +1,38 @@
-﻿import React from 'react';
-import './ListItem.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./ListItem.module.scss";
+import Button from "../../Button/Button";
+import Title from "../../Title/Title";
 
-// const ListItem = (props) => (
-//   <li className='list-item__wrapper'>
-//     <img 
-//       src={props.image} 
-//       alt={props.name}
-//       className="list-item__image"/>
-//     <div>
-//       <h2 className='list-item__name'>{props.name}</h2>
-//       <p className='list-item__description'>{props.description}</p>
-//       <a href={props.twitterLink}>
-//         <button className='list-item__button'>visit twitter</button>
-//       </a>
-//     </div>
-//   </li>
-// )
+const ListItem = ({ image, name, description, twitterLink }) => { 
+  const ImageTag = image ? 'img' : 'div';
 
-const ListItem = ({name, description, image, twitterLink}) => (
-  <li className='list-item__wrapper'>
-    <img 
+  return (
+    <li className={styles.wrapper}>
+    <ImageTag 
       src={image} 
-      alt={name}
-      className="list-item__image"
-      />
+      className={image ? styles.image : styles.imageNone} 
+      alt={name} 
+    />
     <div>
-      <h2 className='list-item__name'>{name}</h2>
-      <p className='list-item__description'>{description}</p>
-      <a href={twitterLink}>
-        <button className='list-item__button'>visit twitter</button>
-      </a>
+      <Title>{name}</Title>
+      <p className={styles.description}>{description}</p>
+      <Button href={twitterLink}> visit twitter page</Button>
     </div>
   </li>
-);
-//deklarowanie propsów
+  )
+};
+
 ListItem.propTypes = {
+  image: PropTypes.string,
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
-  image: PropTypes.string.isRequired,
   twitterLink: PropTypes.string.isRequired,
-}
+};
+
 ListItem.defaultProps = {
-  description: 'One o the React guys'
-}
+  image: null,
+  description: "One of the React creators",
+};
 
-
-export default ListItem
+export default ListItem;

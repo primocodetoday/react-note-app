@@ -1,16 +1,37 @@
-﻿import React from 'react';
+import React from "react";
+import styles from "./Form.module.scss";
+import Input from "../Input/Input";
+import Button from '../Button/Button'
+import Title from '../Title/Title'
 
-const Form = ({submitFn, }) => (
-  <form onSubmit={submitFn}>
-    <input placeholder="name" name="name"/>
-    <input placeholder="link" name="link"/>
-    <input placeholder="image" name="image"/>
-    <textarea placeholder="description" name="description"/>
-    <button type="submit">
-      Add new item
-    </button>
-  </form>
-)
+const Form = ({ submitFn }) => (
+  <div className={styles.wrapper}>
+    <Title>Add new twitter account</Title>
+    <form 
+    className={styles.form} 
+    onSubmit={submitFn}
+    autoComplete="off">
+      <Input 
+        name="name"
+        label="Name"
+        maxLenght={30}
+      />
+      <Input 
+        name="link"
+        label="Twitter link"
+      />
+      <Input 
+        name="image"
+        label="Image link"
+      />
+      <Input 
+        tag="textarea"
+        name="description"
+        label="Description"
+      />
+      <Button> add new item </Button>
+    </form>
+  </div>
+);
 
 export default Form;
-

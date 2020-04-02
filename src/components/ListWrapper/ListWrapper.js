@@ -1,19 +1,13 @@
-﻿import React from 'react';
-import ListItem from './ListItem/ListItem';
-import './ListWrapper.css';
+import React from "react";
+import ListItem from "./ListItem/ListItem";
+import styles from "./ListWrapper.module.scss";
 
-const ListWrapper = (props) => (
-  <ul className="list-wrapper__wrapper">
-      {props.items.map(item => (
-        // <ListItem
-        //   image={item.image}
-        //   name={item.name}
-        //   description={item.description}
-        //   link={item.twitterLink}
-        // />
-        <ListItem key={item.name} {...item} />
-      ))}
+const ListWrapper = props => (
+  <ul className={styles.wrapper}>
+    {props.items.map(item => (
+      <ListItem key={item.name} {...item} />
+    ))}
   </ul>
 );
 
-export default ListWrapper
+export default ListWrapper;
