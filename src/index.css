@@ -1,9 +1,12 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800 &display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+:root{
+  
+}
 
 body {
   margin: 0;

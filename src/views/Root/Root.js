@@ -3,8 +3,8 @@ import TwitterView from '../TwitterView/TwitterView'
 import ArticlesView from '../ArticlesView/ArticlesView'
 import NotesView from '../NotesView/NotesView'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Navigation from '../../components/Navigation/Navigation'
-
+import Header from '../../components/Header/Header'
+import Modal from '../../components/Modal/Modal'
 
 import List from '../../components/List/List';
 import '../../index.css';
@@ -69,13 +69,14 @@ class Root extends React.Component {
     return (
       <BrowserRouter>
         <>
-        <Navigation/>
+          <Header/>
           <h1>hello world</h1>
           <Switch>
             <Route exact path='/' component={TwitterView} />
             <Route path='/articles' component={ArticlesView} />
             <Route path='/notes' component={NotesView} />
           </Switch>
+          <Modal/>
         </>
       </BrowserRouter>
 
