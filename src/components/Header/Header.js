@@ -3,11 +3,13 @@ import Button from '../Button/Button'
 import HeaderNavigation from './HeaderNavigation';
 import styles from './Header.module.scss'
 
-const Header = () => (
+const Header = ({ openModalFn }) => (
   <header className={styles.wrapper}>
     <p className={styles.logo}>prim<span>N</span>ote.</p>
     <HeaderNavigation/>
-    <Button secondary>new item</Button>
+    <Button
+    onClick={openModalFn} 
+    secondary>new item</Button>
   </header>
 
 );
