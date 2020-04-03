@@ -20,7 +20,7 @@ const ListItem = ({ image, title, description, link }) => {
         {link && <Button
           href={link}
         >
-          visit twitter page
+          visit page
         </Button>}
       </div>
     </li>
