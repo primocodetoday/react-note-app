@@ -1,5 +1,3 @@
-#### This application was created during the base React course 
+#### This application was created during the "React Basics" course.
 
 Deploy is available on [Netlify](https://primo-react-1.netlify.com).
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
