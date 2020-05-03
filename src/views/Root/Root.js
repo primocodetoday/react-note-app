@@ -3,45 +3,51 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styles from './Root.module.scss';
 import AppContext from '../../context';
 import { TubersView, ArticlesView, NotesView } from '..';
-import { Header, Modal } from '../../components';
-
-import danAbramovImage from '../../assets/images/danabramov.jpg';
-import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
-import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
-import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
+import { Header } from '../../components';
+import Modal from '../../components/Modal/Modal';
 
 class Root extends React.Component {
   state = {
     tuber: [
       {
-        image: danAbramovImage,
-        title: 'Dan Abramov',
-        description: 'Working on @reactjs. The demo guy.',
-        link: 'https://twitter.com/dan_abramov',
+        image:
+          'https://yt3.ggpht.com/a/AATXAJx4mX_aT5yajphZCmPUOqBUXETaMX-wBSjY_Q=s88-c-k-c0x00ffffff-no-rj',
+        title: 'Techmoan',
+        description:
+          'Featuring the best and worst of new and old technology. The UK’s most popular Tech Channel that doesn’t review smartphones. ',
+        link: 'https://www.youtube.com/user/Techmoan',
       },
       {
-        image: ryanFlorenceImage,
-        title: 'Ryan Florence',
+        image:
+          'https://yt3.ggpht.com/a/AATXAJwIHOTspfmIL24Bcr_aIor6CI-Q0zifWQ7vIA=s100-c-k-c0xffffffff-no-rj-mo',
+        title: 'Marques Brownlee',
         description:
-          'Making React accessible for users and developers at https://reach.tech . Online learning, workshops, OSS, and consulting.',
-        link: 'https://twitter.com/ryanflorence',
+          'Quality Tech Videos | YouTuber | Geek | Consumer Electronics | Tech Head | Internet Personality!',
+        link: 'https://www.youtube.com/user/marquesbrownlee',
       },
       {
-        image: michaelJacksonImage,
-        title: 'Michael Jackson',
-        description:
-          'Maker. Co-author of React Router. Working on @ReactTraining. Created @unpkg. Head over heels for @cari.',
+        image:
+          'https://yt3.ggpht.com/a/AATXAJzGUJdH8PJ5d34Uk6CYZmAMWtam2Cpk6tU_Qw=s100-c-k-c0xffffffff-no-rj-mo',
+        title: 'Linus Tech Tips',
+        description: 'Tech can be complicated; we try to make it easy.',
         link: 'https://twitter.com/mjackson',
       },
       {
-        image: kentCDoddsImage,
-        title: 'Kent C. Dodds',
+        image:
+          'https://yt3.ggpht.com/a/AATXAJwnqxvNhYPZtO7JRSR8d7U0mJOkYXb-XfBtSw=s100-c-k-c0xffffffff-no-rj-mo',
+        title: 'LGR',
         description:
-          'Making software development more accessible · Husband, Father, Latter-day Saint, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters · #JS',
-        link: 'https://twitter.com/kentcdodds',
+          'Weekly coverage of retro tech, PC games, and more! Classic computer gaming, Oddware, thrifting, Tech Tales, Sims, etc',
+        link: 'https://www.youtube.com/user/phreakindee',
       },
     ],
-    article: [],
+    article: [
+      {
+        title: 'New iPhone 12: Everything we know about Apple’s 2020 iPhones',
+        link: `https://www.tomsguide.com/news/latest-iphone-12-news`,
+        description: `The iPhone 12 should be the biggest upgrade in years. Here's everything you need to know.`,
+      },
+    ],
     note: [],
     isModalOpen: false,
   };
