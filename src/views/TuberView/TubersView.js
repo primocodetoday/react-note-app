@@ -2,12 +2,10 @@ import React from 'react';
 import AppContext from '../../context';
 import List from '../../components/List/List';
 
-const TwittersView = () => (
+const TubersView = () => (
   <AppContext.Consumer>
-    {(context) => (
-      <List items={context.twitter} />
-    )}
+    {(context) => <List items={context.tuber} />}
   </AppContext.Consumer>
 );
 
-export default TwittersView;
+export default TubersView;

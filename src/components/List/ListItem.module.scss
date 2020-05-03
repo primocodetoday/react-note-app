@@ -10,20 +10,22 @@
 }
 
 .wrapper {
-    list-style: none;
-    padding: 0px 30px 50px 0 ;
-    display: flex;
-    align-items: center;
-    position: relative;
-    animation: appear .5s ease;
+  flex-grow: 1;
+  flex-basis: 50%;
+  list-style: none;
+  padding: 0px 30px 50px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  animation: appear 0.5s ease;
 }
 
 .image {
-    flex-shrink: 0;
-    margin-right: 30px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 .imageNone {
   @extend .image;
@@ -33,16 +35,17 @@
 }
 
 .description {
-    margin: 10px 0 20px;
-    font-weight: 300;
+  color: white;
+  margin: 10px 0 20px;
+  font-weight: 300;
 }
 
 .button {
-    font-size: 10px;
-    text-decoration: none;
-    padding: 7px 12px;
-    font-weight: 500;
-    background: none;
-    border: 2px solid #1E58FF;
-    color: #1E58FF;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 7px 12px;
+  font-weight: 500;
+  background: none;
+  border: 2px solid #1e58ff;
+  color: #1e58ff;
 }
