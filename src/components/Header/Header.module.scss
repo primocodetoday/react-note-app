@@ -1,11 +1,12 @@
 ﻿.wrapper {
   display: grid;
-  grid-template-columns: 150px 1fr 100px;
+  grid-template-columns: 170px 1fr 100px;
   align-items: center;
   padding: 15px 20px;
 }
 
 .logo {
+  margin: 0 0;
   font-weight: 800;
   font-size: 1.7rem;
   color: #ffffff;

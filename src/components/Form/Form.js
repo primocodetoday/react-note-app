@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppContext from '../../context';
 import styles from './Form.module.scss';
-import Input from '../Input/Input';
-import Button from '../Button/Button';
-import Title from '../Title/Title';
+import { Button, Title, Input } from '..';
 import Radio from './FormRadio';
 
 const types = {
@@ -18,101 +16,101 @@ const descriptions = {
   note: 'Note',
 };
 
-class Form extends React.Component {
-  state = {
+const Form = () => {
+  const [form, setForm] = useState({
     type: types.tuber,
     title: '',
     link: '',
     image: '',
     description: '',
-  };
+  });
 
-  handleRadioButtonChange = (type) => {
-    this.setState({
-      type,
+  const handleRadioButtonChange = (type) => {
+    setForm({
+      ...form,
+      type, // type:type
     });
   };
 
-  handleInputChange = (e) => {
-    this.setState({
+  const handleInputChange = (e) => {
+    setForm({
+      ...form,
       [e.target.name]: e.target.value,
     });
   };
 
-  render() {
-    const { type } = this.state;
+  const { type, title, link, image, description } = form;
 
-    return (
-      <AppContext.Consumer>
-        {(context) => (
-          <div className={styles.wrapper}>
-            <Title>Add new {descriptions[type]}</Title>
-            <form
-              autoComplete="off"
-              className={styles.form}
-              onSubmit={(e) => context.addItem(e, this.state)}
-            >
-              <div className={styles.formOptions}>
-                <Radio
-                  id={types.tuber}
-                  checked={type === types.tuber}
-                  changeFn={() => this.handleRadioButtonChange(types.tuber)}
-                >
-                  YouTuber
-                </Radio>
-                <Radio
-                  id={types.article}
-                  checked={type === types.article}
-                  changeFn={() => this.handleRadioButtonChange(types.article)}
-                >
-                  Article
-                </Radio>
-                <Radio
-                  id={types.note}
-                  checked={type === types.note}
-                  changeFn={() => this.handleRadioButtonChange(types.note)}
-                >
-                  Note
-                </Radio>
-              </div>
+  return (
+    <AppContext.Consumer>
+      {(context) => (
+        <div className={styles.wrapper}>
+          <Title>Add new {descriptions[type]}</Title>
+          <form
+            autoComplete="off"
+            className={styles.form}
+            onSubmit={(e) => context.addItem(e, form)}
+          >
+            <div className={styles.formOptions}>
+              <Radio
+                id={types.tuber}
+                checked={type === types.tuber}
+                changeFn={() => handleRadioButtonChange(types.tuber)}
+              >
+                YouTuber
+              </Radio>
+              <Radio
+                id={types.article}
+                checked={type === types.article}
+                changeFn={() => handleRadioButtonChange(types.article)}
+              >
+                Article
+              </Radio>
+              <Radio
+                id={types.note}
+                checked={type === types.note}
+                changeFn={() => handleRadioButtonChange(types.note)}
+              >
+                Note
+              </Radio>
+            </div>
+            <Input
+              onChange={handleInputChange}
+              value={title}
+              name="title"
+              label={type === types.tuber ? 'Tuber channel' : 'Title'}
+              maxLength={50}
+            />
+            {type !== types.note ? (
               <Input
-                onChange={this.handleInputChange}
-                value={this.state.title}
-                name="title"
-                label={type === types.tuber ? 'Tuber channel' : 'Title'}
-                maxLength={50}
+                onChange={handleInputChange}
+                value={link}
+                name="link"
+                label={type === types.tuber ? 'YouTube Link' : 'Link'}
               />
-              {type !== types.note ? (
-                <Input
-                  onChange={this.handleInputChange}
-                  value={this.state.link}
-                  name="link"
-                  label={type === types.tuber ? 'Tuber Link' : 'Link'}
-                />
-              ) : null}
+            ) : null}
 
-              {type === types.twitter ? (
-                <Input
-                  onChange={this.handleInputChange}
-                  value={this.state.image}
-                  name="image"
-                  label="Image"
-                />
-              ) : null}
+            {type === types.tuber ? (
               <Input
-                onChange={this.handleInputChange}
-                value={this.state.description}
-                tag="textarea"
-                name="description"
-                label="Description"
+                onChange={handleInputChange}
+                value={image}
+                name="image"
+                label="Image"
               />
-              <Button>add new item</Button>
-            </form>
-          </div>
-        )}
-      </AppContext.Consumer>
-    );
-  }
-}
+            ) : null}
+            <Input
+              onChange={handleInputChange}
+              value={description}
+              tag="textarea"
+              name="description"
+              label="Description"
+            />
+            <Button>add new item</Button>
+          </form>
+        </div>
+      )}
+    </AppContext.Consumer>
+  );
+};
 
 export default Form;
