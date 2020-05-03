@@ -2,17 +2,16 @@
   font-size: 10px;
   text-decoration: none;
   padding: 7px 12px;
-  font-weight: 500;
-  background: none;
-  border: 2px solid #1e58ff;
-  color: #1e58ff;
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.55);
+  font-weight: 700;
+  background: white;
+  color: #d82724;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.55);
   cursor: pointer;
 }
 
 .secondary {
   @extend .button;
-
-  background-color: #1e58ff;
+  letter-spacing: 1px;
+  background-color: #d82724;
   color: white;
 }

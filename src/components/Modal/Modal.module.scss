@@ -2,20 +2,20 @@
   padding: 40px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 75vw;
   max-width: 600px;
   min-width: 430px;
   min-height: 70vh;
-  background-color: white;
+  background-color: #202020;
   box-shadow: 0 0px 40px -5px rgba(#818181, 0.5);
   position: fixed;
 }
 
 .closeButton {
-  background-color: #1e58ff;
+  background-color: #d82724;
   color: white;
-  border: 2px solid #1e58ff;
+  border: 2px solid #d82724;
   position: absolute;
   right: 20px;
   top: 20px;
@@ -23,7 +23,8 @@
   width: 25px;
   cursor: pointer;
 
-    &:after, &:before {
+  &:after,
+  &:before {
     content: '';
     position: absolute;
     top: 50%;
@@ -31,13 +32,12 @@
     height: 2px;
     width: 14px;
     background-color: white;
-    }
-
-    &:before {
-      transform: translate(-50%, -50%) rotate(45deg);
-    }
-    &:after {
-      transform: translate(-50%, -50%) rotate(-45deg);
-    }
-      
   }
+
+  &:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
