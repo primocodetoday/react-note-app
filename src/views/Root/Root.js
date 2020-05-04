@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styles from './Root.module.scss';
 import AppContext from '../../context';
@@ -6,8 +6,8 @@ import { TubersView, ArticlesView, NotesView } from '..';
 import { Header } from '../../components';
 import Modal from '../../components/Modal/Modal';
 
-class Root extends React.Component {
-  state = {
+const Root = () => {
+  const [data, setData] = useState({
     tuber: [
       {
         image:
@@ -49,59 +49,50 @@ class Root extends React.Component {
       },
     ],
     note: [],
-    isModalOpen: false,
+  });
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
   };
 
-  addItem = (e, newItem) => {
-    e.preventDefault();
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
-    this.setState((prevState) => ({
+  const addItem = (e, newItem) => {
+    e.preventDefault();
+    setData((prevState) => ({
+      ...data,
       [newItem.type]: [...prevState[newItem.type], newItem],
     }));
-
-    this.closeModal();
+    closeModal();
   };
 
-  openModal = () => {
-    this.setState({
-      isModalOpen: true,
-    });
+  const contextElements = {
+    ...data,
+    addItem,
   };
 
-  closeModal = () => {
-    this.setState({
-      isModalOpen: false,
-    });
-  };
-
-  render() {
-    const { isModalOpen } = this.state;
-    const contextElements = {
-      ...this.state,
-      addItem: this.addItem,
-    };
-
-    return (
-      <BrowserRouter>
-        <AppContext.Provider value={contextElements}>
-          <div className={styles.wrapper}>
-            <Header openModalFn={this.openModal} />
-            <Switch>
-              <Route exact path="/" component={TubersView} />
-              <Route path="/articles" component={ArticlesView} />
-              <Route path="/notes" component={NotesView} />
-            </Switch>
-            {isModalOpen && <Modal closeModalFn={this.closeModal} />}
-          </div>
-        </AppContext.Provider>
-      </BrowserRouter>
-    );
-  }
-}
+  return (
+    <BrowserRouter>
+      <AppContext.Provider value={contextElements}>
+        <div className={styles.wrapper}>
+          <Header openModalFn={openModal} />
+          <Switch>
+            <Route exact path="/" component={TubersView} />
+            <Route path="/articles" component={ArticlesView} />
+            <Route path="/notes" component={NotesView} />
+          </Switch>
+          {isModalOpen && <Modal closeModalFn={closeModal} />}
+        </div>
+      </AppContext.Provider>
+    </BrowserRouter>
+  );
+};
 
 export default Root;
 
-// 1. change twitters to tubers
 // 2. fill categories with own data
-// 3. Rewrite to hooks
-// 4. Validate props
+// 4. Validate all props
