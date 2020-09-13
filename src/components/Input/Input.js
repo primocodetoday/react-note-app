@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Input.module.scss';
 
 const Input = (
-  { tag: Tag, name, label, maxLength, ...props }, // zmiana nazwy propsa
+  { tag: Tag, name, label, maxLength, onChange, value }, // zmiana nazwy propsa tag na Tag
 ) => (
   <div className={styles.formItem}>
     <Tag
@@ -14,7 +14,8 @@ const Input = (
       placeholder=" "
       required
       maxLength={maxLength}
-      {...props}
+      onChange={onChange}
+      value={value}
     />
     <label className={styles.label} htmlFor={name}>
       {label}
@@ -28,6 +29,8 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   maxLength: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 Input.defaultProps = {
