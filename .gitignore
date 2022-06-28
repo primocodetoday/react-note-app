@@ -15,6 +15,7 @@
 .env
 
 # misc
+.idea
 .eslintcache
 .DS_Store
 .env.local
