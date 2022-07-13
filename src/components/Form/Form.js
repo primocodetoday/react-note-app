@@ -2,8 +2,7 @@ import React from 'react';
 import AppContext from '../../context';
 import styles from './Form.module.scss';
 import Input from '../Input/Input';
-import Button from '../Button/Button';
-import Title from '../Title/Title';
+import { Button, Title } from '..';
 import Radio from './FormRadio';
 
 const types = {

@@ -1,12 +1,10 @@
 import React from 'react';
-import styles from './Root.module.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import styles from './Root.module.scss';
 import AppContext from '../../context';
-import TubersView from '../TuberView/TubersView';
-import ArticlesView from '../ArticlesView/ArticlesView';
-import NotesView from '../NotesView/NotesView';
-import Header from '../../components/Header/Header';
-import Modal from '../../components/Modal/Modal';
+import { TubersView, ArticlesView, NotesView } from '..';
+import { Header, Modal } from '../../components';
+
 import danAbramovImage from '../../assets/images/danabramov.jpg';
 import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
 import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
