@@ -1,4 +1,4 @@
-#### This application was created during the React course 
+#### This application was created during the base React course 
 
 Deploy is available on [Netlify](https://primo-react-1.netlify.com).
 
