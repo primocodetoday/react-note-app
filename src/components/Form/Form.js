@@ -1,43 +1,42 @@
-import React from "react";
-import AppContext from "../../context";
-import styles from "./Form.module.scss";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
-import Title from "../Title/Title";
-import Radio from "./FormRadio";
+import React from 'react';
+import AppContext from '../../context';
+import styles from './Form.module.scss';
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+import Title from '../Title/Title';
+import Radio from './FormRadio';
 
 const types = {
-  twitter: "twitter",
-  article: "article",
-  note: "note",
+  tuber: 'tuber',
+  article: 'article',
+  note: 'note',
 };
 
 const descriptions = {
-  twitter: "favorite Twitter account",
-  article: "Article",
-  note: "Note",
+  tuber: 'YouTuber',
+  article: 'Article',
+  note: 'Note',
 };
 
 class Form extends React.Component {
   state = {
-    type: types.twitter,
-    title: "",
-    link: "",
-    image: "",
-    description: "",
+    type: types.tuber,
+    title: '',
+    link: '',
+    image: '',
+    description: '',
   };
 
-  handleRadioButtonChange = type => {
+  handleRadioButtonChange = (type) => {
     this.setState({
-      type: type,
+      type,
     });
   };
-  
-  handleInputChange = e => {
+
+  handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
   };
 
   render() {
@@ -45,7 +44,7 @@ class Form extends React.Component {
 
     return (
       <AppContext.Consumer>
-        {context => (
+        {(context) => (
           <div className={styles.wrapper}>
             <Title>Add new {descriptions[type]}</Title>
             <form
@@ -55,11 +54,11 @@ class Form extends React.Component {
             >
               <div className={styles.formOptions}>
                 <Radio
-                  id={types.twitter}
-                  checked={type === types.twitter}
-                  changeFn={() => this.handleRadioButtonChange(types.twitter)}
+                  id={types.tuber}
+                  checked={type === types.tuber}
+                  changeFn={() => this.handleRadioButtonChange(types.tuber)}
                 >
-                  Twitter
+                  YouTuber
                 </Radio>
                 <Radio
                   id={types.article}
@@ -80,9 +79,7 @@ class Form extends React.Component {
                 onChange={this.handleInputChange}
                 value={this.state.title}
                 name="title"
-                label={
-                  type === types.twitter ? "Twitter Name" : "Title"
-                }
+                label={type === types.tuber ? 'Tuber channel' : 'Title'}
                 maxLength={50}
               />
               {type !== types.note ? (
@@ -90,9 +87,7 @@ class Form extends React.Component {
                   onChange={this.handleInputChange}
                   value={this.state.link}
                   name="link"
-                  label={
-                    type === types.twitter ? "Twitter Link" : "Link"
-                  }
+                  label={type === types.tuber ? 'Tuber Link' : 'Link'}
                 />
               ) : null}
 

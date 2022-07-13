@@ -4,13 +4,13 @@
   align-items: center;
   margin: 30px 20px 20px 0;
   font-weight: 700;
-  color: #1e58ff;
-  
+  color: white;
+
   input {
     opacity: 0;
     position: absolute;
   }
-  
+
   &Button {
     margin-right: 5px;
     width: 15px;
@@ -19,7 +19,7 @@
     border: 2px solid #1e58ff;
     cursor: pointer;
   }
-  
+
   input:checked + &Button {
     background-color: #1e58ff;
     box-shadow: inset 0 0 0 2px white;
