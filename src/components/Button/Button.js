@@ -1,28 +1,46 @@
-﻿import React from 'react'
-import styles from './Button.module.scss'
+﻿import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Button.module.scss';
 
-const Button = ({children, href, secondary, ...props}) => {
-
-  const buttonClass = secondary ? styles.secondary : styles.button
+const Button = ({ children, href, secondary, onClick }) => {
+  const buttonClass = secondary ? styles.secondary : styles.button;
 
   return (
     <>
-      {
-        href ?(
+      {href ? (
         <a
           href={href}
           target="_blank"
           className={buttonClass}
-          rel="noopener noreferrer">
-            {children}
+          rel="noopener noreferrer"
+        >
+          {children}
         </a>
-        ) : (
-          <button className={buttonClass} {...props}>
-        {children}
-        </button>)
-      }
+      ) : (
+        <button
+          type="submit"
+          aria-label={children}
+          className={buttonClass}
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      )}
     </>
-  )
+  );
 };
 
-export default Button
+Button.propTypes = {
+  children: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  secondary: PropTypes.bool,
+  onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  secondary: false,
+  onClick: null,
+  href: null,
+};
+
+export default Button;

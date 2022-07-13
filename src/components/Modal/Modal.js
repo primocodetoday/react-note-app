@@ -7,7 +7,6 @@ const Modal = ({ closeModalFn }) => (
   <div className={styles.wrapper}>
     <button
       type="button"
-      text="close"
       className={styles.closeButton}
       onClick={closeModalFn}
       aria-label="Close"
