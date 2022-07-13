@@ -24,8 +24,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# configs
-.editorconfig
-.eslintrc
-.prettierrc
