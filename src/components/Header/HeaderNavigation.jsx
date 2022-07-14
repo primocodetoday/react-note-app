@@ -6,18 +6,33 @@ const HeaderNavigation = () => (
 	<nav>
 		<ul className={styles.wrapper}>
 			<li className={styles.navItem}>
-				<NavLink activeClassName={styles.navItemLinkActive} className={styles.navItemLink} to="/">
+				<NavLink
+					className={({ isActive }) => ([
+						styles.navItemLink,
+						(isActive ? styles.navItemLinkActive : '')
+					].join(' '))}
+					to="/">
 					Tech tubers
 				</NavLink>
 			</li>
 			<li className={styles.navItem}>
-				<NavLink activeClassName={styles.navItemLinkActive} className={styles.navItemLink} to="/articles">
-					articles
+				<NavLink
+					className={({ isActive }) => ([
+						styles.navItemLink,
+						(isActive ? styles.navItemLinkActive : '')
+					].join(' '))}
+					to="/articles">
+					Articles
 				</NavLink>
 			</li>
 			<li className={styles.navItem}>
-				<NavLink activeClassName={styles.navItemLinkActive} className={styles.navItemLink} to="/notes">
-					notes
+				<NavLink
+					className={({ isActive }) => ([
+						styles.navItemLink,
+						(isActive ? styles.navItemLinkActive : '')
+					].join(' '))}
+					to="/notes">
+					Notes
 				</NavLink>
 			</li>
 		</ul>
